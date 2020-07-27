@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function clickedOn(name) {
+		window.alert("clicked on '" + name + "'");
+		window.AppInventor.setWebViewString(name);
+		
+	}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="stylesheet" href="thumbnail.css">
+</head>
+<body>
+	<button onclick="clickedOn('jondoe')"><img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/4/005/056/04b/25e1858.jpg">
+	Jon Doe<p class="byline">Hi<font class="time">16:32</font></p></button>
+	<button onclick="clickedOn('tomdoe')"><img src="http://jsayprevarsity.com/wp-content/uploads/2016/01/tutor-8.jpg">
+	Tom Doe<p class="byline">Good morning :)<font class="time">16:32</font></p></button>
+	<button class="footer" onclick="clickedOn('archive')">Archived Chats</button>

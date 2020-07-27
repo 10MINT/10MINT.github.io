@@ -1,0 +1,191 @@
+---
+layout: content
+---
+<h1>How to Write an Extension (For Beginners)</h1>
+<hr>
+<h2 id="basic">Basic knowledge</h2><p>
+App Inventor extensions are developed in Java, so a bit of knowledge is required. Developing extensions is only possible because the App Inventor 
+source code is open source. Most extensions work on all App Inventor platforms. The exact instructions strongly depend on your OS, but I will try 
+to keep them as general as possible. I am a beginner myself, so any help and suggestions are welcome. 
+This tutorial will give you a general view from newbie to newbie.</p>
+
+<button onclick="toggleAccordion('build-extension-only')" class="w3-button w3-block w3-left-align">
+	▼ The new method allows you to write extensions without having to build an App Inventor instance</button>
+<div id="build-extension-only" class="w3-container w3-hide w3-show">
+	<ol>
+		<li>Clone this repository: <a href="https://github.com/mit-cml/extension-template">https://github.com/mit-cml/extension-template</a></li>
+		<li>Install Java 1.8 (either <a href="https://jdk.java.net/java-se-ri/8-MR3">OpenJDK</a> or 
+			<a href="https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html">Oracle</a>)</li>
+		<li>Install <a href="http://ant.apache.org/" target="_blank">ant</a> 1.10 or higher (don't forget to 
+			<a href="http://ant.apache.org/manual/install.html">set <code>ANT_HOME</code></a>)</li>
+		<li>Put your source code into the <code>src</code> folder</li>
+		<li>Run <code>ant extensions</code> on the command line from the root of your repository to compile your extensions</li>
+		<li>The compiled extension is placed in the <code>out</code> folder</li>
+	</ol>
+	The normal <a href="#necesseties">requirements when writing extensions</a>	apply. Libraries are put in the <code>lib/deps</code> folder. 
+	See the document <a href="https://docs.google.com/document/d/1xk9dMfczvjbbwD-wMsr-ffqkTlE3ga0ocCE1KOb2wvw/pub">How to Add a Component</a> 
+	for details about what to write in the extension.
+</div>
+
+<button onclick="toggleAccordion('building-from-sources')" class="w3-button w3-block w3-left-align">
+	▼ The old approach required building App Inventor yourself</button>
+<div id="building-from-sources" class="w3-container w3-hide">
+	<h2 id="software">What software you will need</h2><p>
+	<ul>
+		<li>Java Development Kit (JDK): Download <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank">here</a>
+		<li>Apache Ant: Download <a href="http://ant.apache.org/" target="_blank">here</a>
+		<li>Google Appengine SDK: Download <a href="https://cloud.google.com/appengine/docs/standard/java/download" target="_blank">here</a> 
+		(Make sure to download Standard Java Environment)
+		<li>The App Inventor Sources: Download <a href="https://github.com/mit-cml/appinventor-sources" target="_blank">here</a>
+		<li>An editor for Java code (I use <a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a>)
+		<li>Git to run Apache Ant: Download <a href="https://git-scm.com/downloads" target="_blank">here</a></li>
+	</ul>
+	Maybe you are going to regret that later, but I decided that running a build server are not needed for newbies.</p>
+	
+	<div class="w3-panel w3-pale-res w3-border w3-border-red" id="gitwarning">
+	<p><b>ATTENTION:</b> Unlike previously stated here, Git is necessary to run Apache Ant.</p>
+	</div>
+	
+	<h2 id="setup">Setting up your development environment 
+	(<a href="https://docs.google.com/document/d/1Xc9yt02x3BRoq5m1PJHBr81OOv69rEBy8LVG_84j9jc/pub" target="_blank">document</a>)</h2><p>
+	Download the above mentioned software and unpack them respectively install them. Then set your Environment Variables. Under Windows 8 and higher do 
+	<strong>right click on Windows logo -> System -> Advanced Configuration -> Enviroment Variables</strong>. Add your ant and Java home directories to 
+	your path variable (use the /bin folder for that). Then add two new variables <strong>ANT_HOME</strong> and <strong>JAVA_HOME</strong> with the 
+	corresponding folder paths. Last but not least you need to add <strong>ANT_OPTS</strong> with the parameter <strong>-Xms512m</strong>. Detailed 
+	information can be found <a href="https://community.thunkable.com/t/any-tutorials-on-creating-extensions/1566/8" target="_blank">here</a></p>
+	
+	<h2 id="note">Things to notice</h2><p>
+	Make sure that the JRE and JDK are the same version. <strong>Make sure that your environment variables are set correctly.</strong> It is 
+	easier to put JDK, ant and appengine in a folder that does not contain spaces. If you do that, you have to add apostrophes before and after 
+	every path you write in the command line.</p>
+	
+	<h2 id="git">Using Git software</h2><p>
+	You <strong>can</strong> use a Git GUI for easier version control. You can use any Git software you want e.g.
+	<ul>
+	<li><a href="https://github.com/" target="_blank">GitHub</a>
+		<br>most popular website, used by MIT to control contributions</li>
+	<li><a href="https://bitbucket.org/" target="_blank">Bitbucket</a>
+		<br>similar to GitHub</li>
+	<li><a href="https://about.gitlab.com/installation/">GitLab</a>
+		<br>For more professional users</li>
+	</p></ul>
+	
+	<h3 id="forkvsclone">Fork or Clone?</h3><p>
+	Clone the App Inventor Sources if you are a beginner and do not plan to change App Inventor's core components. Fork them if you plan to contribute 
+	to the App Inventor Sources or if you think you'll mess up something. Branches have the advantage that you can easily switch back to a working branch
+	if you mess up something.</p>
+	<h3>Instructions</h3><p>
+	For command line tools use the instructions at the bottom of the 
+	<a href="http://ai2.appinventor.mit.edu/reference/other/extensions.html" target="_blank">official instructions</a> (Appendix A). Instructions for
+	GitHub for Desktop: Sign up or in to your GitHub account. Go to the official
+	<a href="https://github.com/mit-cml/appinventor-sources" target="_blank">App Inventor Sources</a> repository on GitHub. Click "Clone or download"
+	and then "Open in Desktop". Follow the instructions to clone the repository. If you want to to create a new branch, in GitHub desktop, click "Branch"
+	and then "New branch..." and follow the instructions. Alternatively, use the shortcut "Ctrl+Shift+N" to directly create a new branch. You can also 
+	download a .zip file if you don't want to create a GitHub account (not recommended).</p>
+	
+	<h2 id="procedure">Procedure (<a href="https://docs.google.com/document/d/1Xc9yt02x3BRoq5m1PJHBr81OOv69rEBy8LVG_84j9jc/pub" target="_blank">document</a>)</h2><p>
+	The App Inventor team did sum this up very good:<br>
+	<div class="w3-panel w3-sand w3-leftbar">
+		<p><i class="fa fa-quote-right w3-xxlarge w3-opacity"></i>
+		<span class="w3-serif w3-xlarge"><br>
+		Here are the steps we recommend in building an extension component. [...]<br>
+		<ol>
+			<li>Set up a local version of App Inventor for your own use, building a simple extension component for it, as practice.</li>
+			<li>Build your desired component for your local instance and test it carefully.</li>
+			<li>Modify your component to have the correct package name.</li>
+			<li>Generate an aix file, so that the extension can be imported.</li>
+			<li>Test the aix file by importing the extension into a project you build on the public App Inventor server.</li>
+			<li>Publish your extension.</li>
+		</ol></span></p>
+	</div> 
+	
+	But let's do this step by step. If you are familiar with using extensions, you can start with chapter 3 of the official instructions. Anyway, run <code>
+	ant</code> to make sure that everything is working correctly. It takes a few minutes, but should display "BUILD SUCCESSFUL Total time: xxx minutes"</p>
+	<h3>1. Your first extension</h3><p>
+	For your first extension, add your own lines to the description under <code>@DesignerComponent</code> of an existing component. You find all existing 
+	components in the folder <i>/appinventor-sources/appinventor/components/src/com/google/appinventor/components</i>. Save the file and launch a local
+	App Inventor instance (see command below) to see your changes. Make sure to run <code>ant MakeAuthKey</code> <strong>before</strong> your first launch.</p> 
+	<h3>2. Your first own extension</h3><p>
+	Then start with a new file called ExistingExtensionAlt.java (e.g. CameraAlt.java) in the <i>appinventor/components/src/com/</i> directory. The folder
+	structure behind src/ will be your package name. I recommend <i>com/yourname/</i> as folder structure and <i>com.yourname.extensionname</i> as package name. These 
+	should be written in lowercase. Note: Your package name should be unique to prevent incompatibility issues. Copy the code of ExistingExtension.java
+	to your file. Now this is "your" component and you have to make some changes to make it working. First and most important, change all appearances of
+	ExistingComponent to ExistingComponentAlt. Your file name is your class name and extension name and must be in CamelCase. Now you have to modify some
+	lines of code to make this an external component.</p>
+	<h3 id="necesseties">3. Things that are required</h3><p>
+	<ul>
+		<li>Your file name will be your extension name and must be your class name. All must be in CamelCase</li>
+		<li>Your (unique) package name</li>
+		<li>Import of App Inventor's core libraries</li>
+		<li><code>@DesignerComponent</code> properties
+			<ul>
+				<li>A version number in integer format, specified by <code>version</code></li>
+				<li>A good description what your extension does, specified in the field <code>description</code></li>
+				<li><code>category = ComponentCategory.EXTENSION, nonVisible = true</code> cannot be changed</li>
+				<li>Your extension icon, specified in <code>iconName</code>. You can use a link to a publicly accessible image
+					or you can pack it with your extension. Remember that loading images from the web can be slow. If you want
+					to pack your image with the extension, put it in a folder called <code>aiwebres</code> and refer to it as
+					<code>aiwebres/[YOUR_ICON_NAME].png</code>. The icon should be a 16x16 png image</li>
+				<li>Everything separated by a comma</li>
+			</ul>
+		</li>
+		<li><code>@SimpleObject(external = true)</code>, all <strong>before</strong> your class.</li>
+	</ul>
+	Again, save the file and launch a local	App Inventor instance to test it. Run <code>ant extensions</code> to pack your extensions and share them.</p>
+	<h3>4. Now you're ready to rock</h3><p>
+	Now the only thing left is learning Java (if you have not already done that) and rock the community! You can now write extensions with the help of
+	Android Java. Awesome! If you don't know where to start, take a look at the open source extensions below. And if that doesn't help, look in the
+	forum what extensions people need. See <a href="https://docs.google.com/document/d/1xk9dMfczvjbbwD-wMsr-ffqkTlE3ga0ocCE1KOb2wvw/pub" target="_blank">this 
+	documentation</a> to see how to add components. You can download my example extension <a href="files/YourExtension.java" download>here</a>.</p>
+	
+	<div class="w3-panel w3-pale-res w3-border w3-border-red" id="note">
+	<h2>Note:</h2>
+	<ul>
+		<li>Don't leave the <code>@UsesPermissions</code> annotation empty, it prevents users of your extension from uploading it to Google Play</li>
+		<li>@DesignerProperty has to be accompanied by an <code>@SimpleProperty</code> annotation, use <code>@SimpleProperty(userVisible = false)</code> 
+		to hide it from the user</ul>
+	</ul>
+	</div>	
+	
+	<h2 id="commands">Used commands</h2><p>
+	All commands must be executed in your appinventor folder (the folder that contains e.g. the build.xml and the Readme). Use the command line tool of 
+	your OS for them.
+	<ul>
+		<li><code>ant</code><br>Compiles your local App Inventor instance and builds it</li>
+		<li><code>ant extensions</code><br>Compiles your extension(s) and generates the .aix file(s)</li>
+		<li><code>ant clean</code><br>Cleans your workspace. Can be useful if your workspace is messed up</li>
+		<li><code><i>(path_to_appengine)</i>/bin/dev_appserver._(file)_ --port=8888 --address=0.0.0.0 appengine/build/war/</code><br>
+		Launches an App Inventor instance on your local machine. Replace <i>(path_to_appengine)</i> with the actual path and _(file)_ with cmd 
+		(for Windows) or sh (for Linux/macOS)<br>
+		You have to run <code>ant MakeAuthKey</code> <strong>once</strong> to use your Local App Inventor Instance<br>
+		Type <i>localhost:8888</i> in your browser to use it
+		<li><code>ant RunLocalBuildServer</code><br>starts a local build server (the local App Inventor instance cannot compile apps)</li>
+	</ul></p>
+	<hr>
+	<h2  id="links">Links</h2><p>
+	<ul>
+		<li><a href="http://ai2.appinventor.mit.edu/reference/other/extensions.html" target="_blank">Official App Inventor instructions</a></li>
+		<li><a href="https://docs.google.com/document/d/1Xc9yt02x3BRoq5m1PJHBr81OOv69rEBy8LVG_84j9jc/pub" target="_blank">How to Build App Inventor from 
+		the Sources</li>
+		<li><a href="https://docs.google.com/document/d/1xk9dMfczvjbbwD-wMsr-ffqkTlE3ga0ocCE1KOb2wvw/pub" target="_blank">How to Add a Component 
+		(App Inventor)</a></li>
+		<li><a href="https://docs.google.com/document/d/1sAw0QObTxTWqRX7GQRCa2z9TIV2r5AKT9UKMFF1acZI/pub" target="_blank">Developing MIT App Inventor using git and github.com</a></li>
+		<li><a href="http://appinventor.mit.edu/extensions/" target="_blank">App Inventor sample extensions</a></li>
+		<li><a href="https://docs.makeroid.io/extensions/creating-extensions">Creating extensions</a> by the Makeroid team</li>
+		<li><a href="https://community.thunkable.com/t/any-tutorials-on-creating-extensions/1566" target="_blank">Similar thunkable topic (incl. how to 
+		set Environment Variables)</a></li>
+		<li><a href="https://www.tutorialspoint.com/java/" target="_blank">Java tutorial from tutorialspoint</a></li>
+		<li><a href="https://www.greenfoot.org/overview" target="_blank">Learn Java with Greenfoot</a></li>
+	</ul></p>
+</div>
+	
+<script>
+	function toggleAccordion(id) {
+	  var x = document.getElementById(id);
+	  if (x.className.indexOf("w3-show") == -1) {
+		x.className += " w3-show";
+	  } else {
+		x.className = x.className.replace(" w3-show", "");
+	  }
+	}
+</script> 

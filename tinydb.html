@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<style>.fa-quote-right{text-decoration:none;}</style>
+
+<h1>All About TinyDB</h1>
+<h4>(At least I hope it's all)<br>
+For help see the <a href="http://ai2.appinventor.mit.edu/reference/components/storage.html#TinyDB" target="_blank">reference</a></h4><hr>
+<h2 id="explanation">What is a TinyDB?</h2>
+The TinyDB component is a database component. There are other database components like Firebase, FusionTables and TinyWebDB, but these
+are online databases. This is also the major difference between the TinyDB and all other databases. This component allow you to create
+a database that is only accessible from your app (at least for non-rooted phones). If you don't know what a database is, you better
+check <a href="https://en.wikipedia.org/wiki/Database" target="_blank">Wikipedia</a> for that, because databases are very useful for 
+developers. Luckily, <a href="https://www.merriam-webster.com/" target="_blank">Merriam-Webster</a> has prepared the
+following definition for you: 
+<div class="w3-panel w3-sand w3-leftbar" id="definition">
+<p><a href="https://www.merriam-webster.com/dictionary/database" target="_blank" class="fa fa-quote-right w3-xxlarge w3-opacity"></a>
+<span class="w3-serif w3-xlarge"><br>
+DATABASE: [...] a usually large collection of data organized especially for rapid search and retrieval
+</p></div>
+<div class="w3-panel w3-pale-red w3-border w3-border-red" id="attention">
+<p>Databases store values in "tags" and you can use these to get the stored values.
+As of January 2019, you can create different datastores in a single app.
+You need to change the namespace property of the TinyDB component for that.
+It acts like a name for the table in your database.</p>
+</div>
+<h2 id="usecases">What can a TinyDB used for?</h2>
+Generally speaking, everything what a database can be used for, although I wouldn't recommend them for large databases. Typically you
+use them for storing whether the user is registrated or not, the user's username, a high-score. Because of the root access it is not
+recommended to store whether the user is using the free version of an app or not. You can use them to share data between screens, but 
+not between apps. An important difference between the TinyDB and the variables is that the storage is persistent. That means that the 
+values are still there, in contrast to variables, which are initialized with whatever value you choose each time you start the app.
+<h2 id="possibilities">What can you do with a TinyDB?</h2>
+You can store every kind of data, e.g. strings, numbers, booleans and even lists. As mentioned before, you could store complex lists
+with sublists, but I don't recommend that because it gets too messy. You can do normal list operations such as select list item, but 
+also more complicated ones such as lookup in pairs. But remove list item, replace list item, etc. do <b>not</b> work, because they
+don't store the data in the TinyDB, but in a copy of it. The data is stored as a string, which will work for all
+data types except the component type.
+<div class="w3-panel w3-pale-red w3-border w3-border-red" id="attention">
+	<p>Be careful: The companion has only one database, so all apps in live development share the same database.</p>
+</div>

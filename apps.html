@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h2>This page is dedicated to <a href="//appinventor.mit.edu/explore/" target="_blank">MIT App Inventor</a> and its derivatives 
+      <a href="//thunkable.com/#/" target="blank">Thunkable</a>, <a href="//www.kodular.io/" target="blank">Kodular</a>, etc.</h2>
+      <h4>
+        <p><br>You can take a look at my <a href="extensions.html">extensions page</a>, <a href="snippets.html">snippets</a> or my 
+        <a href="links.html"> useful links</a></p>
+        <p>Check out my tutorial <a href="writingextensions.html">How to Write an Extension</a></p>
+        <p>Take a look at my <a href="showcase.html">app showcase</a> or see <a href="otherapps.html">what others did</a></p>
+        <p>You can find my open-source projects <a href="opensource.html">here</a></p>
+        <p>Read my paper <a href="whylearnai.html">Why You Should Learn App Inventor</a></p>
+        <p>Read my <a href="allabout.html">All About ...</a> series, where I explain a specific App Inventor concept in detail</p>
+        <p>I can also recommend to <a href="think.html">think before you make an app</a></p>
+        <p>Read <a href="passwords.html">my password advice</a> or <a href="nocode.html">why nocode is great</a></p>
+      </h4>
+    </div>
+
+    <div class="w3-third w3-center">
+      <ul class="w3-ul w3-border w3-margin-left"><h4>
+        <li><h3>Other App Inventor blogs</h3></li>
+        {% for dev in site.data.developers %}
+          <a href="{{ dev.link }}" target="_blank"><li>{{ dev.name }}</li></a>
+        {% endfor %}
+      </h4></ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+/*
+A thumbnail list view
+by Red Panda Apps
+- http://redpandaapps.tk
+- https://twitter.com/redpandadevs 
+*/
+
+/* ============================================================================================================================
+== GENERAL STYLES
+** ============================================================================================================================ */
+
+body {
+  padding:0;
+  margin:0;
+  font:1em/1.4 Arial, Helvetica, sans-serif;
+  color:#333;
+  background:#fff;
+}
+
+button {
+	display: block;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 15px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+	height:10%;
+	width:100%;
+	border-bottom: 1px solid black;
+}
+
+button:hover {
+    background-color: #AAA;
+}
+
+button.footer {
+	font-size: 0.8em;
+	text-align: center;
+	color: grey;
+	height: 8%;
+}
+
+hr {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+img {
+	height:4em;
+	float:left;
+	margin-right: 1em;
+	border-radius: 2em;
+}
+
+.byline {
+	font-size: 0.8em;
+    color: grey;
+}
+
+.time {
+	font-size: 1em;
+	float: right;
+}

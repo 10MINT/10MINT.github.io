@@ -1,0 +1,24 @@
+---
+layout: content
+---
+<h1>All About Start Values</h1>
+<h4>(At least I hope it's all)<br>
+For help see the <a href="http://appinventor.mit.edu/explore/ai2/support/blocks/control.html#openscreenwithvalue" target="_blank">reference</a></h4><hr>
+<h2>There are two types of start values</h2>
+<ul class="w3-large">
+	<li>start value</li>
+	<li>plain start text</li>
+</ul> 
+<p>The plain start text should always be used when communicating with other apps. You can send and receive values from other apps with it! For all other
+purposes you should use the start value. Use it e.g. when passing values from one screen to another.</p>
+<div class="w3-panel w3-pale-yellow w3-border w3-border-yellow" id="attention">
+	<p>When the screen closes, the start value does not change! Use the variable <code>result</code> from <code>Screen.Other Screen Closed</code> if you pass values through
+	<code>Close screen with value</code>!</p>
+</div>
+According to <a href="http://puravidaapps.com" target="_blank">Taifun</a> there are currently some issues of the Companion.
+<div class="w3-panel w3-sand w3-leftbar">
+<p><i class="fa fa-quote-right w3-xxlarge w3-opacity"></i>
+<span class="w3-serif w3-xlarge"><br>
+The close screen with value block triggers both the Initialize and OtherScreenClosed events instead of only the OtherScreenClosed event.</p>
+</div>
+(Taken from <a href="http://puravidaapps.com/manager.php" target="_blank">The recommended method of switching screens in App Inventor</a>)
