@@ -3,6 +3,11 @@ layout: content
 ---
 <h1>All About Storage</h1>
 <h4>(At least I hope it's all)</h4><hr>
+<div class="w3-panel w3-pale-green w3-border w3-border-green" id="android-10">
+	Since release <a href="//appinventor.mit.edu/ai2/ReleaseNotes#changes-between-nb184a-and-nb185-september-1-2020">nb185</a> 
+	there is a universal URL for the assets (<code>file:///appinventor_asset/</code>) and changes how App Inventor handles file 
+	paths in Android 10 and above.
+</div>
 <ul>
 	<li>All rules should apply to all App Inventor platforms</li>
 	<li>All built-in procedures will overwrite folders and files if they already exist</li>
@@ -16,37 +21,52 @@ layout: content
 	<li>A link to a file on the internet is also a valid address</li>
 	<li>It is currently not possible to store files in the app's asset folder</li>
 	<li>To display files in the WebViewer, you have to set the URL to the URI of the file</li>
-	<li>The asset folder has an URI called <code>file:///android_asset/</code></li>
-	<li>The data folder should have the URI <code>file:///data/user/0/{packagename}/files/</code>. It might not be the same for everyone,
-                we'll have to do some research</li>
+	<li id="solution">The asset folder has an URI called <code>file:///android_asset/</code></li>
+	<li>The data folder should have the URI <code>file:///data/user/0/{packagename}/files/</code> in Android 6 and 
+		<code>file:///Android/data/{packagename}/files</code> in Android 10. 
+		It might not be the same for everyone, we'll have to do some research</li>
 	<li>It is possible to create folders. <code>/new_folder/filename</code> will create the folder <code>new_folder</code> on the sd card 
                 and will put the file <code>filename</code> in it. Though, I'm not able to reproduce that</li>
 	<li>If the folder starts with a . (dot), the folder will be hidden, i.e. invisible for non-root users</li>
 	<li>You can also set the url of the WebViewer to <code>data:text/html,{html formatted text}</code> to load the content of a html 
                 file into the webviewer. This is especially useful in combination with the <code>ReadFrom file</code> block</li>
 </ul>
-<h2>The solution (deprecated)</h2>
-<div class="w3-panel w3-pale-green w3-border w3-border-green" id="solution">
-	<p>I finally found a way to make this possible. Assuming
-	<ol>
-		<li>you want to read/write files and you want to display them in the webviewer,</li>
-		<li>you don't want to store data on the sd card, because every phone treats external storage differently and you don't want your files be accessible 
-		from the outside</li>
-		<li>and there is no URI for the data folder of the app,</li>
-	</ol>    
-	there is only one way to do it:
-	<ol>
-		<li>Read the content of the file</li>
-		<li>Set the WebViewer.Url to join "data:text/html," "[content of the file]"</li>
-		<li>Append something by appending it to the file while setting WebViewer.Url to join get WebViewer.current Url "new content" (The File.Got Text 
-		event provides the text)</li>
-		<li>Adding css style is only possible by adding <code>style</code> tags between data:text/html, and the actual content</li>
-	</ol>	
-	I think it could also b possible with JavaScript in the document, but this is very inconvenient.</p>
+<button onclick="toggleAccordion('old-accordion')" class="w3-button w3-block w3-left-align">
+	▼ The old solution is deprecated now</button>
+<div id="old-accordion" class="w3-container w3-hide w3-hide">
+	<div class="w3-panel w3-pale-red w3-border w3-border-red" id="old-solution">
+		<p>I finally found a way to make this possible. Assuming
+		<ol>
+			<li>you want to read/write files and you want to display them in the webviewer,</li>
+			<li>you don't want to store data on the sd card, because every phone treats external storage differently and you don't want your files be accessible 
+			from the outside</li>
+			<li>and there is no URI for the data folder of the app,</li>
+		</ol>    
+		there is only one way to do it:
+		<ol>
+			<li>Read the content of the file</li>
+			<li>Set the WebViewer.Url to join "data:text/html," "[content of the file]"</li>
+			<li>Append something by appending it to the file while setting WebViewer.Url to join get WebViewer.current Url "new content" (The File.Got Text 
+			event provides the text)</li>
+			<li>Adding css style is only possible by adding <code>style</code> tags between data:text/html, and the actual content</li>
+		</ol>	
+		I think it could also b possible with JavaScript in the document, but this is very inconvenient.</p>
+	</div>
+	<img src="images/files.png">
 </div>
-<img src="images/files.png">
 <h2 id="resources">Resources</h2>
 <a href="https://community.thunkable.com/t/working-with-files/9954">The post that started it all</a><br>
 <a href="http://ai2.appinventor.mit.edu/reference/components/storage.html">The File component</a><br>
 <a href="http://ai2.appinventor.mit.edu/reference/other/media.html">Accessing images and sounds</a> (not up to date)<br>
 <a href="https://android.stackexchange.com/questions/47924/where-android-apps-store-data">Where Android apps store data</a><br>
+
+<script>
+	function toggleAccordion(id) {
+	  var x = document.getElementById(id);
+	  if (x.className.indexOf("w3-show") == -1) {
+		x.className += " w3-show";
+	  } else {
+		x.className = x.className.replace(" w3-show", "");
+	  }
+	}
+</script> 
