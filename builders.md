@@ -6,10 +6,10 @@ layout: content
 <div class="w3-text-gray">Mobile-focused builders with full control over the app logic</div>
 
 - [App Inventor](https://appinventor.mit.edu)&nbsp;<span class="w3-tag w3-yellow">open source</span> <span class="w3-tag w3-blue">Blockly</span>
-- [Kodular](https://kodular.io)&nbsp;<span class="w3-tag w3-green">free tier</span> <span class="w3-tag w3-blue">Blockly</span>
+- [Kodular](https://kodular.io)&nbsp;<span class="w3-tag w3-green">free tier</span> <span class="w3-tag w3-blue">Blockly</span> <span class="w3-tag w3-gray">Android only</span>
 - [Thunkable](https://thunkable.com)&nbsp;<span class="w3-tag w3-green">free tier</span> <span class="w3-tag w3-blue">Blockly</span>
 - [backendless](https://backendless.com/developers/#ui-builder)&nbsp;<span class="w3-tag w3-green">free tier</span>
-- [AppGyver](https://appgyver.com)&nbsp;<span class="w3-tag w3-green">free tier</span>
+- [AppGyver](https://appgyver.com)&nbsp;<span class="w3-tag w3-green">free tier</span> <span class="w3-tag w3-blue">Blockly</span>
 - [V.One](https://yourvone.com)
 - [Adalo](https://adalo.com)&nbsp;<span class="w3-tag w3-green">free tier</span>
 - [Snapp](https://snapp.click/)&nbsp;<span class="w3-tag w3-red">beta</span> <span class="w3-tag w3-blue">Blockly</span>
@@ -28,6 +28,9 @@ layout: content
 - [Uiflow](https://uiflow.com)&nbsp;<span class="w3-tag w3-red">beta</span>
 - [Glide](https://www.glideapps.com)&nbsp;<span class="w3-tag w3-green">free tier</span>
 - [Bildr](https://www.bildr.com/)&nbsp;<span class="w3-tag w3-green">free tier</span>
+- [ycode](https://www.ycode.com/)&nbsp;<span class="w3-tag w3-red">beta</span>
+- [AppBuildy](https://appbuildy.com)
+- [Editor X](https://www.editorx.com/)
 
 ## Sources
 - [Nocode.tech](https://nocode.tech/category/app-builders)
